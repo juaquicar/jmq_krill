@@ -1,10 +1,10 @@
-from pyjmqkrill import PyJMQKrill, APIError
+from jmq_krill.krill_api import PyJMQKrill, APIError
 
 
 def main():
-    host = "http://api.your-host.com"
-    username = "your_username"
-    password = "your_password"
+    host = "https://host.es"
+    username = "username"
+    password = "password"
     client = PyJMQKrill(host, username, password)
 
     try:
@@ -12,20 +12,20 @@ def main():
         print(f"Authenticated, token: {token}")
 
         # Ejemplo: obtener CPEs por topología
-        topology = "tu-topologia-uuid"
+        topology = "d47e2de1-cee9-4c79-984e-652122c339e8"
         cpes = client.get_cpes_by_gen_equipos(topology)
-        print(f"CPEs en '{topology}':", cpes)
+        print(f"CPEs en '{topology}':", len(cpes))
 
         # Ejemplo: información detallada de un CPE
-        cpe_id = "cpe-id-ejemplo"
+        cpe_id = 2315
         info = client.get_cpe_info(cpe_id)
         print(f"Info de CPE '{cpe_id}':", info)
 
         # Ejemplo: estado de ONUs por OLT
-        olt_name = "nombre-olt-ejemplo"
-        frame, slot, port = 0, 1, 2
+        olt_name = "oltCorral"
+        frame, slot, port = '0', '00', '13'
         onus_status = client.get_cpes_by_olt(olt_name, frame, slot, port)
-        print(f"Estado de ONUs en OLT '{olt_name}':", onus_status)
+        print(f"Estado de ONUs en OLT '{olt_name}':", len(onus_status))
 
         # Ejemplo: obtener todos los CPEs de monitoring
         all_cpes = client.get_cpes_monitoring()

@@ -99,17 +99,17 @@ class PyJMQKrill:
             raise ValueError("El parámetro 'uuid_gen_equipo' debe ser un str no vacío.")
         return self._request("GET", "/api/v2/isp/cpes/", params={"topology": uuid_gen_equipo})
 
-    def get_cpe_info(self, cpe: str) -> Any:
+    def get_cpe_info(self, cpe: int) -> Any:
         """
         Obtener información en tiempo real de un CPE.
         :param cpe: Nombre o ID del CPE.
         :raises ValueError: Si el parámetro no es válido.
         """
-        if not cpe or not isinstance(cpe, str):
-            raise ValueError("El parámetro 'cpe' debe ser un str no vacío.")
+        if not cpe or not isinstance(cpe, int):
+            raise ValueError("El parámetro 'cpe' debe ser un int no vacío.")
         return self._request("GET", f"/api/v2/monitoring/cpes/{cpe}/info")
 
-    def get_cpes_by_olt(self, nombre_olt: str, frame: int, slot: int, port: int) -> Any:
+    def get_cpes_by_olt(self, nombre_olt: str, frame: str, slot: str, port: str) -> Any:
         """
         Obtener estado de ONUs para una OLT, frame, slot y puerto específicos.
         :raises ValueError: Si algún parámetro no es válido.
@@ -117,8 +117,8 @@ class PyJMQKrill:
         if not nombre_olt or not isinstance(nombre_olt, str):
             raise ValueError("El parámetro 'nombre_olt' debe ser un str no vacío.")
         for name, val in [('frame', frame), ('slot', slot), ('port', port)]:
-            if not isinstance(val, int) or val < 0:
-                raise ValueError(f"El parámetro '{name}' debe ser un entero no negativo.")
+            if not isinstance(val, str):
+                raise ValueError(f"El parámetro '{name}' debe ser un string formato XX.")
 
         path = f"/api/v2/gpon/olts/{nombre_olt}/frames/{frame}/slots/{slot}/ports/{port}/onus/status/"
         return self._request("GET", path)

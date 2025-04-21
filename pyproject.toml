@@ -21,3 +21,6 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://github.com/juaquicar/jmq_krill"
+
+[tool.setuptools.packages.find]
+include = ["jmq_krill"]

@@ -56,11 +56,12 @@ try:
     print(cpes)
 
     # Ejemplo: información de un CPE específico
-    info = client.get_cpe_info("cpe-id")
+    cpe_id = 238
+    info = client.get_cpe_info(cpe_id)
     print(info)
 
     # Ejemplo: estado de ONUs en una OLT
-    status = client.get_cpes_by_olt("olt-name", frame=0, slot=1, port=2)
+    status = client.get_cpes_by_olt("olt-name", frame="0", slot="05", port="00")
     print(status)
 
     # Ejemplo: paginación de monitoring
@@ -113,6 +114,13 @@ pytest tests
 2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`).
 3. Realiza tus cambios y añade tests.
 4. Abre un Pull Request describiendo tu propuesta.
+
+
+## Instalar proyecto en modo editable
+
+```bash
+pip3 install -e .
+```
 
 ## Licencia
 
