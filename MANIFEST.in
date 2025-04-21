@@ -1,0 +1,15 @@
+# Incluir archivos importantes
+include README.md
+include LICENSE
+include requirements.txt
+
+# Excluir archivos innecesarios
+exclude *.pyc
+exclude *.pyo
+exclude .DS_Store
+exclude .env
+exclude .venv
+exclude .vscode
+exclude README-DEV.md
+prune __pycache__
+prune .venv

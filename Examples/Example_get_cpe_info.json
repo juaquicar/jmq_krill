@@ -1,0 +1,109 @@
+{
+  'alarms': [
+    {
+      'admin_status': 'init',
+      'extra': 'effect=serviceaffect curr=0 prev=0',
+      'level': 'warning',
+      'name': 'The distribute fiber is broken or the OLT cannot receive '
+      'expected optical signals from the ONT(LOSi/LOBi)',
+      'type': 'servicequality'
+    }
+  ],
+  'distance': -1,
+  'dnbw': 0.0,
+  'ips': [
+    '0.0.0.0'
+  ],
+  'output': 'offline oltCEEIM:0/5/15-7 0.0.0.0',
+  'registration': {
+    'host': 'oltCEEIM',
+    'id': '0/5/15-7',
+    'last_down_time': None,
+    'related_services': [
+      'onug-olt0/05/15'
+    ],
+    'states': [
+      'offline'
+    ],
+    'tags': [
+      'oltCEEIM-0/5/15',
+      'oltCEEIM'
+    ]
+  },
+  'services': {
+    'txrx': {
+      'output': '',
+      'perfdatas': [
+        {
+          'items': [],
+          'max': 5.0,
+          'metric': 'dnrx',
+          'min': -49.0,
+          'thresholds': [
+            -29,
+            -27,
+            -11,
+            -8
+          ],
+          'uom': 'dBm',
+          'value': None
+        },
+        {
+          'items': [],
+          'max': 15.0,
+          'metric': 'uptx',
+          'min': -10.0,
+          'thresholds': [],
+          'uom': 'dBm',
+          'value': None
+        },
+        {
+          'items': [],
+          'max': 5.0,
+          'metric': 'uprx',
+          'min': -49.0,
+          'thresholds': [
+            -32,
+            -30,
+            -12,
+            -9
+          ],
+          'uom': 'dBm',
+          'value': None
+        },
+        {
+          'items': [],
+          'max': 60.0,
+          'metric': 'upatt',
+          'min': 1.0,
+          'thresholds': [
+            26,
+            46
+          ],
+          'uom': 'dB',
+          'value': -1.0
+        }
+      ],
+      'state_id': 0
+    }
+  },
+  'state': 'down',
+  'state_id': 1,
+  'tech': {
+    'line_profile': 'residential_krill',
+    'service_ports': [
+      {
+        'id': 24,
+        'inbound_traffic_table_name': 'VOIP',
+        'native_vlan': 0,
+        'outbound_traffic_table_name': 'VOIP',
+        'service_vlan': 934,
+        'user_vlan': 1024
+      }
+    ],
+    'service_profile': 'HG4201',
+    'type_name': ''
+  },
+  'upbw': 0.0,
+  'uptime': 0
+}
